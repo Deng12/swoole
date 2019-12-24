@@ -1,6 +1,6 @@
 <?php
 require __DIR__.'/vendor/autoload.php';
 
-use ShineYork\Io\Index;
+use Deng\Io\Index;
 
 (new Index)->index();
