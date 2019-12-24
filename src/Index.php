@@ -1,5 +1,5 @@
 <?php
-namespace ShineYork\Io;
+namespace Deng\Io;
 
 /**
  *
