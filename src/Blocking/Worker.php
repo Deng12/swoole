@@ -1,5 +1,5 @@
 <?php
-namespace ShineYork\Io\Blocking;
+namespace Deng\Io\Blocking;
 
 // 这是等会自个要写的服务
 class Worker
