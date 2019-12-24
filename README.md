@@ -2,8 +2,8 @@
 根据网络IO模型，自己用原生的代码诠释一个简易版本的swoole
 
 目录结构如下：
-io
-  -- src
+--io
+  - src
        - Blocking
        - NonBlocking 
        - Multiplexing 
