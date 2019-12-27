@@ -35,14 +35,7 @@ class Worker
             // 把连接放到$read
             // 它返回值其实并不是特别可靠
 
-            // $this->debug('这是stream_select 检测之 start 的 $read');
-            // $this->debug($read, true);
-
             stream_select($read, $w, $e, 1);
-
-            // $this->debug('这是stream_select 检测之 end 的 $read');
-            // $this->debug($read, true);
-            // sleep(1);
             foreach ($read as $socket) {
                 // $socket 可能为
                 if ($socket === $this->socket) {
@@ -55,27 +48,6 @@ class Worker
                 // 1. 主worker
                 // 2. 也可能是通过 stream_socket_accept 创建的连接
             }
-            // // 监听的过程是阻塞的
-            // $client = stream_socket_accept($this->socket);
-            // // is_callable判断一个参数是不是闭包
-            // if (is_callable($this->onConnect)) {
-            //     // 执行函数
-            //     ($this->onConnect)($this, $client);
-            // }
-            // // tcp 处理 大数据 重复多发几次
-            // // $buffer = "";
-            // // while (!feof($client)) {
-            // //    $buffer = $buffer.fread($client, 65535);
-            // // }
-            // $data = fread($client, 65535);
-            // if (is_callable($this->onReceive)) {
-            //     ($this->onReceive)($this, $client, $data);
-            // }
-            // 处理完成之后关闭连接
-            //
-            //
-            // 心跳检测 - 自己的心跳
-            // fclose($client);
         }
     }
 

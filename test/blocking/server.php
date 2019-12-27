@@ -1,6 +1,6 @@
 <?php
 require __DIR__.'/../../vendor/autoload.php';
-use Deng\Io\Blocking\Worker;
+use ShineYork\Io\Blocking\Worker;
 $host = "tcp://0.0.0.0:9000";
 $server = new Worker($host);
 // $server->onConnect = function($socket, $client){

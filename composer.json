@@ -1,16 +1,16 @@
 {
-    "name": "deng/io",
+    "name": "shineyork/io",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "deng",
-            "email": "819763618@qq.com"
+            "name": "shineyork",
+            "email": "shineyork@sixstaredu.com"
         }
     ],
     "autoload":{
         "psr-4":{
-            "Deng\\Io\\":"./src/"
+            "ShineYork\\Io\\":"./src/"
         }
     },
     "require": {}

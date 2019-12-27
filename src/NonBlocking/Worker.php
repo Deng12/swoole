@@ -17,7 +17,6 @@ class Worker
     public function __construct($socket_address)
     {
         $this->socket = stream_socket_server($socket_address);
-        // 
         echo $socket_address."\n";
     }
     // ...
