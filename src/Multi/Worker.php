@@ -35,8 +35,17 @@ class Worker
             // 把连接放到$read
             // 它返回值其实并不是特别可靠
 
+            // $this->debug(' stream_select($read, $w, $e, 1) start');
+            // $this->debug($read,true);
+
             stream_select($read, $w, $e, 1);
+            //
+            // $this->debug(' stream_select($read, $w, $e, 1) end');
+            // $this->debug($read,true);
+            // sleep(3);
             foreach ($read as $socket) {
+                // $this->debug(' foreach $socket ');
+                $this->debug($socket, true);
                 // $socket 可能为
                 if ($socket === $this->socket) {
                     // 创建与客户端的连接
@@ -44,6 +53,7 @@ class Worker
                 } else {
                     // 发送信息
                     $this->sendMessage($socket);
+                    // continue;
                 }
                 // 1. 主worker
                 // 2. 也可能是通过 stream_socket_accept 创建的连接
@@ -68,8 +78,8 @@ class Worker
         $data = fread($client, 65535);
         if ($data === '' || $data == false) {
             // 关闭连接
-            // fclose($client);
-            // unset($this->sockets[(int) $client]);
+            fclose($client);
+            unset($this->sockets[(int) $client]);
             return null;
         }
         if (is_callable($this->onReceive)) {

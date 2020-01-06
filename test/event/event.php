@@ -2,16 +2,25 @@
 use \Event as Event;
 use \EventBase as EventBase;
 
+// 创建事件库 -》 管理事件
 $eventBase = new EventBase();
+
+// 自定义事件
 $event = new Event($eventBase, -1, Event::PERSIST | Event::TIMEOUT, function(){
     echo "hello world event \n";
 });
+
+
 $event1 = new Event($eventBase, -1, Event::PERSIST |  Event::TIMEOUT, function(){
     sleep(2);
     echo "hello world event -0.2 \n";
 });
-$event1->add(0.3);
+
+// 把事件添加到 入库
+$event1->add(0.3);// 可以传递参数，可以不传
 $event->add(0.1);
+
+// 执行
 $eventBase->loop();// 调用设置在eventBase中的事件 -》 swoole-》start启动事件
 
 // 这个类的问题

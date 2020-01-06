@@ -26,5 +26,5 @@ $event = new Event($eventBase, $server, Event::PERSIST | Event::READ | Event::WR
 $event->add();
 
 $count[(int) $server][Event::PERSIST | Event::READ | Event::WRITE] = $event;
-var_dump($count);
+// var_dump($count);
 $eventBase->loop();

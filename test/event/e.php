@@ -24,6 +24,6 @@ class e
         });
         $event->add();
         $this->count[(int) $this->client][Event::PERSIST | Event::READ | Event::WRITE] = $event;
-        var_dump($this->count);
+        // var_dump($this->count);
     }
 }
