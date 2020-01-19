@@ -1,10 +1,14 @@
 <?php
 // echo 1;
 require __DIR__.'/../../../../vendor/autoload.php';
-use ShineYork\Io\Reactor\Swoole\Mulit\Worker;
+use ShineYork\Io\Reactor\Swoole\MulitEndhanced\Worker;
 use ShineYork\Io\Index;
 $host = "tcp://0.0.0.0:9000";
 $server = new Worker($host);
+
+$server->set([
+  'watch_file' => true
+]);
 // echo 1;
 $server->onReceive = function($socket, $client, $data){
     (new Index)->index();
@@ -12,6 +16,8 @@ $server->onReceive = function($socket, $client, $data){
 };
 // debug($host);
 $server->start();
+
+
 
 // require __DIR__.'/../../../../vendor/autoload.php';
 //

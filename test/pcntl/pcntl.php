@@ -1,5 +1,5 @@
 <?php
-// $son = pcntl_fork();
+$son = pcntl_fork();
 
 // if ($son > 0) {
 //   // 父进程空间

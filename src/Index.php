@@ -8,7 +8,6 @@ class Index
 {
     public function index()
     {
-        echo "测试";
-        debug('oo');
+        debug('shineyork 6666...是不是真的 666');
     }
 }
